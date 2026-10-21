@@ -10,8 +10,12 @@ public record Location(
     [property: JsonPropertyName("latitude")] double Latitude,
     [property: JsonPropertyName("longitude")] double Longitude,
     [property: JsonPropertyName("country")] string? Country,
-    [property: JsonPropertyName("admin1")] string? Region)
+    [property: JsonPropertyName("admin1")] string? Region,
+    [property: JsonPropertyName("feature_code")] string? FeatureCode)
 {
+    // Kody GeoNames: PPL* to miejscowości (miasta, wsie, dzielnice), reszta to np. parki, lotniska, góry
+    public bool IsPopulatedPlace => FeatureCode?.StartsWith("PPL", StringComparison.Ordinal) == true;
+
     public string DisplayName =>
         string.Join(", ", new[] { Name, Region, Country }.Where(s => !string.IsNullOrWhiteSpace(s)));
 }

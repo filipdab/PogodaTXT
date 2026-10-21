@@ -12,10 +12,15 @@ public sealed class WeatherClient : IDisposable
 
     public async Task<List<Location>> SearchCityAsync(string name, int count = 5)
     {
+        // Pobieramy więcej wyników, bo część z nich odpadnie przy filtrowaniu
         var url = "https://geocoding-api.open-meteo.com/v1/search" +
-                  $"?name={Uri.EscapeDataString(name)}&count={count}&language=pl&format=json";
+                  $"?name={Uri.EscapeDataString(name)}&count={count * 3}&language=pl&format=json";
         var response = await _http.GetFromJsonAsync<GeocodingResponse>(url);
-        return response?.Results ?? [];
+        var results = response?.Results ?? [];
+
+        // Gdy nie ma żadnej miejscowości (np. szukano szczytu górskiego), zwracamy to, co jest
+        var places = results.Where(l => l.IsPopulatedPlace).ToList();
+        return (places.Count > 0 ? places : results).Take(count).ToList();
     }
 
     public async Task<ForecastResponse> GetForecastAsync(Location location, int days = 7)
