@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="615" height="630" viewBox="0 0 615 630">
-<rect width="615" height="630" rx="8" fill="#0c0c0c"/>
-<path d="M8 0h599a8 8 0 0 1 8 8v26h-615v-26a8 8 0 0 1 8-8z" fill="#1f1f1f"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="607" height="610" viewBox="0 0 607 610">
+<rect width="607" height="610" rx="8" fill="#0c0c0c"/>
+<path d="M8 0h591a8 8 0 0 1 8 8v26h-607v-26a8 8 0 0 1 8-8z" fill="#1f1f1f"/>
 <text x="18" y="22" fill="#9d9d9d" font-family="Segoe UI, sans-serif" font-size="13">PogodaTXT</text>
 <g font-family="Cascadia Mono, Consolas, Menlo, monospace" font-size="14" xml:space="preserve" style="white-space:pre">
 <text x="18" y="66"><tspan fill="#16c60c">===&#160;PogodaTXT&#160;–&#160;prognoza&#160;pogody&#160;===</tspan></text>
@@ -8,25 +8,24 @@
 <text x="18" y="126"><tspan fill="#cccccc">Znaleziono&#160;kilka&#160;miejscowości:</tspan></text>
 <text x="18" y="146"><tspan fill="#cccccc">&#160;&#160;1.&#160;Warszawa,&#160;Województwo&#160;mazowieckie,&#160;Polska</tspan></text>
 <text x="18" y="166"><tspan fill="#cccccc">&#160;&#160;2.&#160;Warszawa,&#160;obwód&#160;doniecki,&#160;Ukraina</tspan></text>
-<text x="18" y="186"><tspan fill="#cccccc">&#160;&#160;3.&#160;Warszawa&#160;Neighborhood&#160;Historic&#160;District,&#160;Ohio,&#160;Stany&#160;Zjednoczone</tspan></text>
-<text x="18" y="206"><tspan fill="#cccccc">Wybierz&#160;numer&#160;(1-3,&#160;Enter&#160;=&#160;anuluj):&#160;</tspan><tspan fill="#ffffff">1</tspan></text>
-<text x="18" y="246"><tspan fill="#16c60c">📍&#160;Warszawa,&#160;Województwo&#160;mazowieckie,&#160;Polska</tspan></text>
-<text x="18" y="266"><tspan fill="#cccccc">────────────────────────────────────────────────────────────</tspan></text>
-<text x="18" y="286"><tspan fill="#cccccc">Teraz:&#160;</tspan><tspan fill="#cccccc">Pochmurno</tspan></text>
-<text x="18" y="306"><tspan fill="#cccccc">&#160;&#160;Temperatura:&#160;&#160;&#160;&#160;&#160;16,0&#160;°C&#160;(odczuwalna&#160;13,4&#160;°C)</tspan></text>
-<text x="18" y="326"><tspan fill="#cccccc">&#160;&#160;Wilgotność:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;68&#160;%</tspan></text>
-<text x="18" y="346"><tspan fill="#cccccc">&#160;&#160;Ciśnienie:&#160;&#160;&#160;&#160;&#160;&#160;&#160;1017&#160;hPa</tspan></text>
-<text x="18" y="366"><tspan fill="#cccccc">&#160;&#160;Wiatr:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;18,0&#160;km/h</tspan></text>
-<text x="18" y="386"><tspan fill="#cccccc">────────────────────────────────────────────────────────────</tspan></text>
-<text x="18" y="406"><tspan fill="#cccccc">Prognoza:</tspan></text>
-<text x="18" y="426"><tspan fill="#cccccc">&#160;&#160;Dzień&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Min&#160;&#160;&#160;Max&#160;&#160;&#160;&#160;Opady&#160;&#160;Szansa&#160;&#160;Pogoda</tspan></text>
-<text x="18" y="446"><tspan fill="#cccccc">&#160;&#160;Dziś&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;11.4&#160;&#160;16.4&#160;&#160;&#160;0.0&#160;mm&#160;&#160;&#160;&#160;&#160;&#160;0%&#160;&#160;</tspan><tspan fill="#cccccc">Pochmurno</tspan></text>
-<text x="18" y="466"><tspan fill="#cccccc">&#160;&#160;Jutro&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;9.4&#160;&#160;14.3&#160;&#160;13.3&#160;mm&#160;&#160;&#160;&#160;100%&#160;&#160;</tspan><tspan fill="#61d6d6">Umiarkowany&#160;deszcz</tspan></text>
-<text x="18" y="486"><tspan fill="#cccccc">&#160;&#160;pt.&#160;23.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;7.1&#160;&#160;13.9&#160;&#160;&#160;0.0&#160;mm&#160;&#160;&#160;&#160;&#160;83%&#160;&#160;</tspan><tspan fill="#61d6d6">Mżawka</tspan></text>
-<text x="18" y="506"><tspan fill="#cccccc">&#160;&#160;sob.&#160;24.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;6.3&#160;&#160;13.4&#160;&#160;&#160;0.0&#160;mm&#160;&#160;&#160;&#160;&#160;&#160;0%&#160;&#160;</tspan><tspan fill="#cccccc">Pochmurno</tspan></text>
-<text x="18" y="526"><tspan fill="#cccccc">&#160;&#160;niedz.&#160;25.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;4.9&#160;&#160;13.6&#160;&#160;&#160;3.0&#160;mm&#160;&#160;&#160;&#160;&#160;65%&#160;&#160;</tspan><tspan fill="#61d6d6">Mżawka</tspan></text>
-<text x="18" y="546"><tspan fill="#cccccc">&#160;&#160;pon.&#160;26.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;4.2&#160;&#160;10.8&#160;&#160;&#160;1.5&#160;mm&#160;&#160;&#160;&#160;&#160;67%&#160;&#160;</tspan><tspan fill="#61d6d6">Mżawka</tspan></text>
-<text x="18" y="566"><tspan fill="#cccccc">&#160;&#160;wt.&#160;27.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2.3&#160;&#160;11.4&#160;&#160;&#160;0.0&#160;mm&#160;&#160;&#160;&#160;&#160;14%&#160;&#160;</tspan><tspan fill="#f9f1a5">Przeważnie&#160;pogodnie</tspan></text>
-<text x="18" y="606"><tspan fill="#cccccc">Podaj&#160;nazwę&#160;miasta&#160;(Enter&#160;=&#160;wyjście):&#160;</tspan><tspan fill="#cccccc">▌</tspan></text>
+<text x="18" y="186"><tspan fill="#cccccc">Wybierz&#160;numer&#160;(1-2,&#160;Enter&#160;=&#160;anuluj):&#160;</tspan><tspan fill="#ffffff">1</tspan></text>
+<text x="18" y="226"><tspan fill="#16c60c">📍&#160;Warszawa,&#160;Województwo&#160;mazowieckie,&#160;Polska</tspan></text>
+<text x="18" y="246"><tspan fill="#cccccc">────────────────────────────────────────────────────────────</tspan></text>
+<text x="18" y="266"><tspan fill="#cccccc">Teraz:&#160;</tspan><tspan fill="#cccccc">Pochmurno</tspan></text>
+<text x="18" y="286"><tspan fill="#cccccc">&#160;&#160;Temperatura:&#160;&#160;&#160;&#160;&#160;16,0&#160;°C&#160;(odczuwalna&#160;13,4&#160;°C)</tspan></text>
+<text x="18" y="306"><tspan fill="#cccccc">&#160;&#160;Wilgotność:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;68&#160;%</tspan></text>
+<text x="18" y="326"><tspan fill="#cccccc">&#160;&#160;Ciśnienie:&#160;&#160;&#160;&#160;&#160;&#160;&#160;1017&#160;hPa</tspan></text>
+<text x="18" y="346"><tspan fill="#cccccc">&#160;&#160;Wiatr:&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;18,0&#160;km/h</tspan></text>
+<text x="18" y="366"><tspan fill="#cccccc">────────────────────────────────────────────────────────────</tspan></text>
+<text x="18" y="386"><tspan fill="#cccccc">Prognoza:</tspan></text>
+<text x="18" y="406"><tspan fill="#cccccc">&#160;&#160;Dzień&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Min&#160;&#160;&#160;Max&#160;&#160;&#160;&#160;Opady&#160;&#160;Szansa&#160;&#160;Pogoda</tspan></text>
+<text x="18" y="426"><tspan fill="#cccccc">&#160;&#160;Dziś&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;11,4&#160;&#160;16,4&#160;&#160;&#160;0,0&#160;mm&#160;&#160;&#160;&#160;&#160;&#160;0%&#160;&#160;</tspan><tspan fill="#cccccc">Pochmurno</tspan></text>
+<text x="18" y="446"><tspan fill="#cccccc">&#160;&#160;Jutro&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;9,4&#160;&#160;14,3&#160;&#160;13,3&#160;mm&#160;&#160;&#160;&#160;100%&#160;&#160;</tspan><tspan fill="#61d6d6">Umiarkowany&#160;deszcz</tspan></text>
+<text x="18" y="466"><tspan fill="#cccccc">&#160;&#160;pt.&#160;23.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;7,1&#160;&#160;13,9&#160;&#160;&#160;0,0&#160;mm&#160;&#160;&#160;&#160;&#160;83%&#160;&#160;</tspan><tspan fill="#61d6d6">Mżawka</tspan></text>
+<text x="18" y="486"><tspan fill="#cccccc">&#160;&#160;sob.&#160;24.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;6,3&#160;&#160;13,4&#160;&#160;&#160;0,0&#160;mm&#160;&#160;&#160;&#160;&#160;&#160;0%&#160;&#160;</tspan><tspan fill="#cccccc">Pochmurno</tspan></text>
+<text x="18" y="506"><tspan fill="#cccccc">&#160;&#160;niedz.&#160;25.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;4,9&#160;&#160;13,6&#160;&#160;&#160;3,0&#160;mm&#160;&#160;&#160;&#160;&#160;65%&#160;&#160;</tspan><tspan fill="#61d6d6">Mżawka</tspan></text>
+<text x="18" y="526"><tspan fill="#cccccc">&#160;&#160;pon.&#160;26.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;4,2&#160;&#160;10,8&#160;&#160;&#160;1,5&#160;mm&#160;&#160;&#160;&#160;&#160;67%&#160;&#160;</tspan><tspan fill="#61d6d6">Mżawka</tspan></text>
+<text x="18" y="546"><tspan fill="#cccccc">&#160;&#160;wt.&#160;27.10&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2,3&#160;&#160;11,4&#160;&#160;&#160;0,0&#160;mm&#160;&#160;&#160;&#160;&#160;14%&#160;&#160;</tspan><tspan fill="#f9f1a5">Przeważnie&#160;pogodnie</tspan></text>
+<text x="18" y="586"><tspan fill="#cccccc">Podaj&#160;nazwę&#160;miasta&#160;(Enter&#160;=&#160;wyjście):&#160;</tspan><tspan fill="#cccccc">▌</tspan></text>
 </g>
 </svg>

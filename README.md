@@ -46,21 +46,21 @@ Można też otworzyć `PogodaTXT.slnx` w Visual Studio i uruchomić projekt klaw
 Podaj nazwę miasta (Enter = wyjście): Warszawa
 Znaleziono kilka miejscowości:
   1. Warszawa, Województwo mazowieckie, Polska
-  2. Warszawa, Obwód doniecki, Ukraina
+  2. Warszawa, obwód doniecki, Ukraina
 Wybierz numer (1-2, Enter = anuluj): 1
 
 📍 Warszawa, Województwo mazowieckie, Polska
 ────────────────────────────────────────────────────────────
 Teraz: Pochmurno
-  Temperatura:     12.4 °C (odczuwalna 9.8 °C)
-  Wilgotność:        84 %
-  Ciśnienie:       1020 hPa
-  Wiatr:           17.3 km/h
+  Temperatura:     16,0 °C (odczuwalna 13,4 °C)
+  Wilgotność:        68 %
+  Ciśnienie:       1017 hPa
+  Wiatr:           18,0 km/h
 ────────────────────────────────────────────────────────────
 Prognoza:
   Dzień              Min   Max    Opady  Szansa  Pogoda
-  Dziś              11.4  16.6   0.0 mm      2%  Pochmurno
-  Jutro              8.8  15.3  12.9 mm     97%  Umiarkowany deszcz
+  Dziś              11,4  16,4   0,0 mm      0%  Pochmurno
+  Jutro              9,4  14,3  13,3 mm    100%  Umiarkowany deszcz
   ...
 ```
 
