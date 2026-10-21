@@ -68,3 +68,7 @@ Prognoza:
 | `PogodaTXT/WeatherClient.cs` | zapytania do API Open-Meteo (geokodowanie i prognoza) |
 | `PogodaTXT/Models.cs` | modele danych odpowiedzi API |
 | `PogodaTXT/WeatherCodes.cs` | polskie opisy i kolory kodów pogody WMO |
+
+## Licencja
+
+Projekt jest udostępniony na licencji MIT – szczegóły w pliku [LICENSE](LICENSE).
