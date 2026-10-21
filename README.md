@@ -4,6 +4,10 @@ Konsolowa aplikacja do sprawdzania prognozy pogody dla wybranego miasta.
 
 Dane pochodzą z darmowego API [Open-Meteo](https://open-meteo.com), które nie wymaga rejestracji ani klucza API.
 
+![Przykładowy wygląd aplikacji PogodaTXT](docs/screenshot.svg)
+
+*Przykładowy wygląd działania aplikacji (obraz wygenerowany na podstawie rzeczywistych danych z API).*
+
 ## Funkcje
 
 - wyszukiwanie miasta po nazwie (z polskimi nazwami miejscowości)
