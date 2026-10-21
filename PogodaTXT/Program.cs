@@ -1,5 +1,6 @@
 ﻿using System.Globalization;
 using System.Text;
+using System.Text.Json;
 using PogodaTXT;
 
 Console.OutputEncoding = Encoding.UTF8;
@@ -51,6 +52,10 @@ while (true)
     catch (TaskCanceledException)
     {
         WriteColored("Przekroczono czas oczekiwania na odpowiedź serwera.\n", ConsoleColor.Red);
+    }
+    catch (Exception ex) when (ex is JsonException or NotSupportedException or InvalidDataException)
+    {
+        WriteColored("Serwer zwrócił nieprawidłowe dane. Spróbuj ponownie później.\n", ConsoleColor.Red);
     }
 }
 

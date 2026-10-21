@@ -27,8 +27,19 @@ public sealed class WeatherClient : IDisposable
                   "&current=temperature_2m,apparent_temperature,relative_humidity_2m,pressure_msl,wind_speed_10m,weather_code" +
                   "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max" +
                   $"&timezone=auto&forecast_days={days}";
-        return await _http.GetFromJsonAsync<ForecastResponse>(url)
-               ?? throw new InvalidOperationException("Pusta odpowiedź z serwera pogody.");
+        var forecast = await _http.GetFromJsonAsync<ForecastResponse>(url);
+        if (forecast?.Current is null || !IsComplete(forecast.Daily))
+            throw new InvalidDataException("Niekompletna odpowiedź z serwera pogody.");
+        return forecast;
+    }
+
+    private static bool IsComplete(DailyWeather? daily)
+    {
+        if (daily?.Dates is null)
+            return false;
+        var n = daily.Dates.Count;
+        return daily.WeatherCodes?.Count == n && daily.TempMax?.Count == n && daily.TempMin?.Count == n &&
+               daily.Precipitation?.Count == n && daily.PrecipitationChance?.Count == n;
     }
 
     public void Dispose() => _http.Dispose();
