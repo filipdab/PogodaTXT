@@ -22,7 +22,8 @@ public record Location(
 
 public record ForecastResponse(
     [property: JsonPropertyName("current")] CurrentWeather Current,
-    [property: JsonPropertyName("daily")] DailyWeather Daily);
+    [property: JsonPropertyName("daily")] DailyWeather Daily,
+    [property: JsonPropertyName("hourly")] HourlyWeather Hourly);
 
 public record CurrentWeather(
     [property: JsonPropertyName("time")] string Time,
@@ -40,3 +41,11 @@ public record DailyWeather(
     [property: JsonPropertyName("temperature_2m_min")] List<double?> TempMin,
     [property: JsonPropertyName("precipitation_sum")] List<double?> Precipitation,
     [property: JsonPropertyName("precipitation_probability_max")] List<int?> PrecipitationChance);
+
+public record HourlyWeather(
+    [property: JsonPropertyName("time")] List<string> Times,
+    [property: JsonPropertyName("weather_code")] List<int> WeatherCodes,
+    [property: JsonPropertyName("temperature_2m")] List<double?> Temperature,
+    [property: JsonPropertyName("precipitation")] List<double?> Precipitation,
+    [property: JsonPropertyName("precipitation_probability")] List<int?> PrecipitationChance,
+    [property: JsonPropertyName("wind_speed_10m")] List<double?> WindSpeed);

@@ -44,6 +44,7 @@ while (true)
 
         var forecast = await client.GetForecastAsync(location);
         PrintForecast(location, forecast);
+        ShowActions(forecast);
     }
     catch (HttpRequestException ex)
     {
@@ -101,12 +102,48 @@ void PrintForecast(Location location, ForecastResponse forecast)
         var date = DateTime.ParseExact(d.Dates[i], "yyyy-MM-dd", CultureInfo.InvariantCulture);
         var day = i == 0 ? "Dziś" : i == 1 ? "Jutro" : date.ToString("ddd dd.MM");
         Console.Write($"  {day,-16}{Fmt(d.TempMin[i]),6}{Fmt(d.TempMax[i]),6}" +
-                      $"{Fmt(d.Precipitation[i]) + " mm",9}{(d.PrecipitationChance[i]?.ToString() ?? "-") + "%",8}  ");
+                      $"{Fmt(d.Precipitation[i]) + " mm",9}{Pct(d.PrecipitationChance[i]),8}  ");
         WriteColored($"{WeatherCodes.Describe(d.WeatherCodes[i])}\n", WeatherCodes.Color(d.WeatherCodes[i]));
     }
 }
 
+void ShowActions(ForecastResponse forecast)
+{
+    while (true)
+    {
+        Console.Write("\n[g] prognoza godzinowa, Enter = nowe wyszukiwanie: ");
+        var input = Console.ReadLine()?.Trim().ToLowerInvariant();
+        if (string.IsNullOrEmpty(input))
+            return;
+        if (input == "g")
+            PrintHourly(forecast.Hourly);
+        else
+            WriteColored("Nieznane polecenie.\n", ConsoleColor.Red);
+    }
+}
+
+void PrintHourly(HourlyWeather h)
+{
+    Console.WriteLine("\nPrognoza godzinowa (co 3 godziny):");
+    Console.WriteLine($"  {"Godzina",-14}{"Temp",6}{"Opady",9}{"Szansa",8}{"Wiatr",11}  Pogoda");
+    var first = ParseHour(h.Times[0]).Date;
+    for (int i = 0; i < h.Times.Count; i += 3)
+    {
+        var time = ParseHour(h.Times[i]);
+        var day = (time.Date - first).Days switch { 0 => "dziś", 1 => "jutro", _ => time.ToString("ddd") };
+        Console.Write($"  {day + " " + time.ToString("HH:mm"),-14}{Fmt(h.Temperature[i]),6}" +
+                      $"{Fmt(h.Precipitation[i]) + " mm",9}{Pct(h.PrecipitationChance[i]),8}" +
+                      $"{Fmt(h.WindSpeed[i]) + " km/h",11}  ");
+        WriteColored($"{WeatherCodes.Describe(h.WeatherCodes[i])}\n", WeatherCodes.Color(h.WeatherCodes[i]));
+    }
+}
+
+static DateTime ParseHour(string iso) =>
+    DateTime.ParseExact(iso, "yyyy-MM-dd'T'HH:mm", CultureInfo.InvariantCulture);
+
 static string Fmt(double? value) => value?.ToString("0.0") ?? "-";
+
+static string Pct(int? value) => (value?.ToString() ?? "-") + "%";
 
 static void WriteColored(string text, ConsoleColor color)
 {

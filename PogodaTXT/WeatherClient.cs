@@ -31,21 +31,24 @@ public sealed class WeatherClient : IDisposable
                   $"?latitude={lat}&longitude={lon}" +
                   "&current=temperature_2m,apparent_temperature,relative_humidity_2m,pressure_msl,wind_speed_10m,weather_code" +
                   "&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,precipitation_probability_max" +
-                  $"&timezone=auto&forecast_days={days}";
+                  "&hourly=weather_code,temperature_2m,precipitation,precipitation_probability,wind_speed_10m" +
+                  $"&forecast_hours=24&timezone=auto&forecast_days={days}";
         var forecast = await _http.GetFromJsonAsync<ForecastResponse>(url);
-        if (forecast?.Current is null || !IsComplete(forecast.Daily))
+        if (forecast?.Current is null || !IsComplete(forecast.Daily) || !IsComplete(forecast.Hourly))
             throw new InvalidDataException("Niekompletna odpowiedź z serwera pogody.");
         return forecast;
     }
 
-    private static bool IsComplete(DailyWeather? daily)
-    {
-        if (daily?.Dates is null)
-            return false;
-        var n = daily.Dates.Count;
-        return daily.WeatherCodes?.Count == n && daily.TempMax?.Count == n && daily.TempMin?.Count == n &&
-               daily.Precipitation?.Count == n && daily.PrecipitationChance?.Count == n;
-    }
+    private static bool IsComplete(DailyWeather? d) =>
+        d?.Dates is { Count: > 0 } dates &&
+        AllHaveCount(dates.Count, d.WeatherCodes, d.TempMax, d.TempMin, d.Precipitation, d.PrecipitationChance);
+
+    private static bool IsComplete(HourlyWeather? h) =>
+        h?.Times is { Count: > 0 } times &&
+        AllHaveCount(times.Count, h.WeatherCodes, h.Temperature, h.Precipitation, h.PrecipitationChance, h.WindSpeed);
+
+    private static bool AllHaveCount(int count, params System.Collections.ICollection?[] lists) =>
+        lists.All(l => l?.Count == count);
 
     public void Dispose() => _http.Dispose();
 }
