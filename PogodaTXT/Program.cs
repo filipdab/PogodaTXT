@@ -9,6 +9,7 @@ Console.InputEncoding = Encoding.UTF8;
 CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("pl-PL");
 
 using var client = new WeatherClient();
+var favorites = new FavoritesStore();
 
 // Miasto można podać jako argument: PogodaTXT Kraków
 string? initialCity = args.Length > 0 ? string.Join(' ', args) : null;
@@ -22,7 +23,18 @@ while (true)
 
     if (query is null)
     {
-        Console.Write("\nPodaj nazwę miasta (Enter = wyjście): ");
+        Console.WriteLine();
+        if (favorites.Items.Count > 0)
+        {
+            Console.WriteLine("Ulubione:");
+            for (int i = 0; i < favorites.Items.Count; i++)
+                Console.WriteLine($"  {i + 1}. {favorites.Items[i].DisplayName}");
+            Console.Write("Podaj nazwę miasta lub numer ulubionego (Enter = wyjście): ");
+        }
+        else
+        {
+            Console.Write("Podaj nazwę miasta (Enter = wyjście): ");
+        }
         query = Console.ReadLine()?.Trim();
     }
 
@@ -31,20 +43,13 @@ while (true)
 
     try
     {
-        var locations = await client.SearchCityAsync(query);
-        if (locations.Count == 0)
-        {
-            WriteColored($"Nie znaleziono miasta \"{query}\".\n", ConsoleColor.Red);
-            continue;
-        }
-
-        var location = locations.Count == 1 ? locations[0] : ChooseLocation(locations);
+        var location = FindFavorite(query) ?? await FindLocationAsync(query);
         if (location is null)
             continue;
 
         var forecast = await client.GetForecastAsync(location);
         PrintForecast(location, forecast);
-        ShowActions(forecast);
+        ShowActions(location, forecast);
     }
     catch (HttpRequestException ex)
     {
@@ -61,6 +66,20 @@ while (true)
 }
 
 Console.WriteLine("Do zobaczenia!");
+
+Location? FindFavorite(string query) =>
+    int.TryParse(query, out var n) && n >= 1 && n <= favorites.Items.Count ? favorites.Items[n - 1] : null;
+
+async Task<Location?> FindLocationAsync(string query)
+{
+    var locations = await client.SearchCityAsync(query);
+    if (locations.Count == 0)
+    {
+        WriteColored($"Nie znaleziono miasta \"{query}\".\n", ConsoleColor.Red);
+        return null;
+    }
+    return locations.Count == 1 ? locations[0] : ChooseLocation(locations);
+}
 
 Location? ChooseLocation(List<Location> locations)
 {
@@ -107,18 +126,44 @@ void PrintForecast(Location location, ForecastResponse forecast)
     }
 }
 
-void ShowActions(ForecastResponse forecast)
+void ShowActions(Location location, ForecastResponse forecast)
 {
     while (true)
     {
-        Console.Write("\n[g] prognoza godzinowa, Enter = nowe wyszukiwanie: ");
+        var isFavorite = favorites.Contains(location);
+        Console.Write($"\n[g] prognoza godzinowa, [u] {(isFavorite ? "usuń z ulubionych" : "dodaj do ulubionych")}, " +
+                      "Enter = nowe wyszukiwanie: ");
         var input = Console.ReadLine()?.Trim().ToLowerInvariant();
         if (string.IsNullOrEmpty(input))
             return;
+
         if (input == "g")
             PrintHourly(forecast.Hourly);
+        else if (input == "u")
+            ToggleFavorite(location, isFavorite);
         else
             WriteColored("Nieznane polecenie.\n", ConsoleColor.Red);
+    }
+}
+
+void ToggleFavorite(Location location, bool isFavorite)
+{
+    try
+    {
+        if (isFavorite)
+        {
+            favorites.Remove(location);
+            WriteColored("Usunięto z ulubionych.\n", ConsoleColor.Green);
+        }
+        else
+        {
+            favorites.Add(location);
+            WriteColored("Dodano do ulubionych.\n", ConsoleColor.Green);
+        }
+    }
+    catch (Exception ex) when (ex is IOException or UnauthorizedAccessException)
+    {
+        WriteColored($"Nie udało się zapisać ulubionych: {ex.Message}\n", ConsoleColor.Red);
     }
 }
 

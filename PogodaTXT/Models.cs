@@ -14,8 +14,10 @@ public record Location(
     [property: JsonPropertyName("feature_code")] string? FeatureCode)
 {
     // Kody GeoNames: PPL* to miejscowości (miasta, wsie, dzielnice), reszta to np. parki, lotniska, góry
+    [JsonIgnore]
     public bool IsPopulatedPlace => FeatureCode?.StartsWith("PPL", StringComparison.Ordinal) == true;
 
+    [JsonIgnore]
     public string DisplayName =>
         string.Join(", ", new[] { Name, Region, Country }.Where(s => !string.IsNullOrWhiteSpace(s)));
 }
