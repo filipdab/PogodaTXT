@@ -4,7 +4,8 @@ using PogodaTXT;
 
 Console.OutputEncoding = Encoding.UTF8;
 Console.InputEncoding = Encoding.UTF8;
-var pl = CultureInfo.GetCultureInfo("pl-PL");
+// Polskie formatowanie liczb i dat niezależnie od ustawień systemu
+CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("pl-PL");
 
 using var client = new WeatherClient();
 
@@ -93,14 +94,14 @@ void PrintForecast(Location location, ForecastResponse forecast)
     for (int i = 0; i < d.Dates.Count; i++)
     {
         var date = DateTime.ParseExact(d.Dates[i], "yyyy-MM-dd", CultureInfo.InvariantCulture);
-        var day = i == 0 ? "Dziś" : i == 1 ? "Jutro" : date.ToString("ddd dd.MM", pl);
+        var day = i == 0 ? "Dziś" : i == 1 ? "Jutro" : date.ToString("ddd dd.MM");
         Console.Write($"  {day,-16}{Fmt(d.TempMin[i]),6}{Fmt(d.TempMax[i]),6}" +
                       $"{Fmt(d.Precipitation[i]) + " mm",9}{(d.PrecipitationChance[i]?.ToString() ?? "-") + "%",8}  ");
         WriteColored($"{WeatherCodes.Describe(d.WeatherCodes[i])}\n", WeatherCodes.Color(d.WeatherCodes[i]));
     }
 }
 
-static string Fmt(double? value) => value?.ToString("0.0", CultureInfo.InvariantCulture) ?? "-";
+static string Fmt(double? value) => value?.ToString("0.0") ?? "-";
 
 static void WriteColored(string text, ConsoleColor color)
 {
